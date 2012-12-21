@@ -1,0 +1,116 @@
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 http://neuroml.svn.sourceforge.net/viewvc/neuroml/NeuroML2/Schemas/NeuroML2/NeuroML_v2alpha.xsd"
+  id="NeuroMLTest">
+    <expOneSynapse id="syn" erev="0mV" gbase="65nS" tauDecay="3ms"/>
+    <iafCell id="iaf" reset="-65mV" C="1.0 nF" thresh="-50mV" leakConductance="10 nS" leakReversal="-65mV"/>
+    <pulseGenerator id="pulseGen_0" delay="0ms" duration="100ms" amplitude="0.068052 nA"/>
+    <pulseGenerator id="pulseGen_1" delay="0ms" duration="100ms" amplitude="0.055854 nA"/>
+    <pulseGenerator id="pulseGen_2" delay="0ms" duration="100ms" amplitude="0.135532 nA"/>
+    <pulseGenerator id="pulseGen_3" delay="0ms" duration="100ms" amplitude="-0.322718 nA"/>
+    <pulseGenerator id="pulseGen_4" delay="0ms" duration="100ms" amplitude="-0.058922 nA"/>
+    <pulseGenerator id="pulseGen_5" delay="0ms" duration="100ms" amplitude="-1.884068 nA"/>
+    <pulseGenerator id="pulseGen_6" delay="0ms" duration="100ms" amplitude="0.054185 nA"/>
+    <pulseGenerator id="pulseGen_7" delay="0ms" duration="100ms" amplitude="0.135882 nA"/>
+    <pulseGenerator id="pulseGen_8" delay="0ms" duration="100ms" amplitude="0.026478 nA"/>
+    <pulseGenerator id="pulseGen_9" delay="0ms" duration="100ms" amplitude="-0.108376 nA"/>
+    <pulseGenerator id="pulseGen_10" delay="0ms" duration="100ms" amplitude="0.062439 nA"/>
+    <pulseGenerator id="pulseGen_11" delay="0ms" duration="100ms" amplitude="0.013844 nA"/>
+    <pulseGenerator id="pulseGen_12" delay="0ms" duration="100ms" amplitude="-0.014851 nA"/>
+    <pulseGenerator id="pulseGen_13" delay="0ms" duration="100ms" amplitude="-1.105545 nA"/>
+    <pulseGenerator id="pulseGen_14" delay="0ms" duration="100ms" amplitude="0.078842 nA"/>
+    <network id="NeuroMLTest">
+      <population id="A" component="iaf" size="10"/>
+      <population id="B" component="iaf" size="5"/>
+      <synapticConnection from="B[0]" to="B[0]" synapse="syn"/>
+      <synapticConnection from="B[0]" to="B[1]" synapse="syn"/>
+      <synapticConnection from="B[0]" to="B[2]" synapse="syn"/>
+      <synapticConnection from="B[0]" to="B[3]" synapse="syn"/>
+      <synapticConnection from="B[0]" to="B[4]" synapse="syn"/>
+      <synapticConnection from="B[1]" to="B[0]" synapse="syn"/>
+      <synapticConnection from="B[1]" to="B[1]" synapse="syn"/>
+      <synapticConnection from="B[1]" to="B[2]" synapse="syn"/>
+      <synapticConnection from="B[1]" to="B[3]" synapse="syn"/>
+      <synapticConnection from="B[1]" to="B[4]" synapse="syn"/>
+      <synapticConnection from="B[2]" to="B[0]" synapse="syn"/>
+      <synapticConnection from="B[2]" to="B[1]" synapse="syn"/>
+      <synapticConnection from="B[2]" to="B[2]" synapse="syn"/>
+      <synapticConnection from="B[2]" to="B[3]" synapse="syn"/>
+      <synapticConnection from="B[2]" to="B[4]" synapse="syn"/>
+      <synapticConnection from="B[3]" to="B[0]" synapse="syn"/>
+      <synapticConnection from="B[3]" to="B[1]" synapse="syn"/>
+      <synapticConnection from="B[3]" to="B[2]" synapse="syn"/>
+      <synapticConnection from="B[3]" to="B[3]" synapse="syn"/>
+      <synapticConnection from="B[3]" to="B[4]" synapse="syn"/>
+      <synapticConnection from="B[4]" to="B[0]" synapse="syn"/>
+      <synapticConnection from="B[4]" to="B[1]" synapse="syn"/>
+      <synapticConnection from="B[4]" to="B[2]" synapse="syn"/>
+      <synapticConnection from="B[4]" to="B[3]" synapse="syn"/>
+      <synapticConnection from="B[4]" to="B[4]" synapse="syn"/>
+      <synapticConnection from="A[0]" to="B[0]" synapse="syn"/>
+      <synapticConnection from="A[0]" to="B[1]" synapse="syn"/>
+      <synapticConnection from="A[0]" to="B[2]" synapse="syn"/>
+      <synapticConnection from="A[0]" to="B[3]" synapse="syn"/>
+      <synapticConnection from="A[0]" to="B[4]" synapse="syn"/>
+      <synapticConnection from="A[1]" to="B[0]" synapse="syn"/>
+      <synapticConnection from="A[1]" to="B[1]" synapse="syn"/>
+      <synapticConnection from="A[1]" to="B[2]" synapse="syn"/>
+      <synapticConnection from="A[1]" to="B[3]" synapse="syn"/>
+      <synapticConnection from="A[1]" to="B[4]" synapse="syn"/>
+      <synapticConnection from="A[2]" to="B[0]" synapse="syn"/>
+      <synapticConnection from="A[2]" to="B[1]" synapse="syn"/>
+      <synapticConnection from="A[2]" to="B[2]" synapse="syn"/>
+      <synapticConnection from="A[2]" to="B[3]" synapse="syn"/>
+      <synapticConnection from="A[2]" to="B[4]" synapse="syn"/>
+      <synapticConnection from="A[3]" to="B[0]" synapse="syn"/>
+      <synapticConnection from="A[3]" to="B[1]" synapse="syn"/>
+      <synapticConnection from="A[3]" to="B[2]" synapse="syn"/>
+      <synapticConnection from="A[3]" to="B[3]" synapse="syn"/>
+      <synapticConnection from="A[3]" to="B[4]" synapse="syn"/>
+      <synapticConnection from="A[4]" to="B[0]" synapse="syn"/>
+      <synapticConnection from="A[4]" to="B[1]" synapse="syn"/>
+      <synapticConnection from="A[4]" to="B[2]" synapse="syn"/>
+      <synapticConnection from="A[4]" to="B[3]" synapse="syn"/>
+      <synapticConnection from="A[4]" to="B[4]" synapse="syn"/>
+      <synapticConnection from="A[5]" to="B[0]" synapse="syn"/>
+      <synapticConnection from="A[5]" to="B[1]" synapse="syn"/>
+      <synapticConnection from="A[5]" to="B[2]" synapse="syn"/>
+      <synapticConnection from="A[5]" to="B[3]" synapse="syn"/>
+      <synapticConnection from="A[5]" to="B[4]" synapse="syn"/>
+      <synapticConnection from="A[6]" to="B[0]" synapse="syn"/>
+      <synapticConnection from="A[6]" to="B[1]" synapse="syn"/>
+      <synapticConnection from="A[6]" to="B[2]" synapse="syn"/>
+      <synapticConnection from="A[6]" to="B[3]" synapse="syn"/>
+      <synapticConnection from="A[6]" to="B[4]" synapse="syn"/>
+      <synapticConnection from="A[7]" to="B[0]" synapse="syn"/>
+      <synapticConnection from="A[7]" to="B[1]" synapse="syn"/>
+      <synapticConnection from="A[7]" to="B[2]" synapse="syn"/>
+      <synapticConnection from="A[7]" to="B[3]" synapse="syn"/>
+      <synapticConnection from="A[7]" to="B[4]" synapse="syn"/>
+      <synapticConnection from="A[8]" to="B[0]" synapse="syn"/>
+      <synapticConnection from="A[8]" to="B[1]" synapse="syn"/>
+      <synapticConnection from="A[8]" to="B[2]" synapse="syn"/>
+      <synapticConnection from="A[8]" to="B[3]" synapse="syn"/>
+      <synapticConnection from="A[8]" to="B[4]" synapse="syn"/>
+      <synapticConnection from="A[9]" to="B[0]" synapse="syn"/>
+      <synapticConnection from="A[9]" to="B[1]" synapse="syn"/>
+      <synapticConnection from="A[9]" to="B[2]" synapse="syn"/>
+      <synapticConnection from="A[9]" to="B[3]" synapse="syn"/>
+      <synapticConnection from="A[9]" to="B[4]" synapse="syn"/>
+      <explicitInput input="pulseGen_0" target="A[0]"/>
+      <explicitInput input="pulseGen_1" target="A[1]"/>
+      <explicitInput input="pulseGen_2" target="A[2]"/>
+      <explicitInput input="pulseGen_3" target="A[3]"/>
+      <explicitInput input="pulseGen_4" target="A[4]"/>
+      <explicitInput input="pulseGen_5" target="A[5]"/>
+      <explicitInput input="pulseGen_6" target="A[6]"/>
+      <explicitInput input="pulseGen_7" target="A[7]"/>
+      <explicitInput input="pulseGen_8" target="A[8]"/>
+      <explicitInput input="pulseGen_9" target="A[9]"/>
+      <explicitInput input="pulseGen_10" target="B[0]"/>
+      <explicitInput input="pulseGen_11" target="B[1]"/>
+      <explicitInput input="pulseGen_12" target="B[2]"/>
+      <explicitInput input="pulseGen_13" target="B[3]"/>
+      <explicitInput input="pulseGen_14" target="B[4]"/>
+    </network>
+</neuroml>
