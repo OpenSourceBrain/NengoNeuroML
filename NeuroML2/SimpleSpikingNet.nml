@@ -1,15 +1,15 @@
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 http://neuroml.svn.sourceforge.net/viewvc/neuroml/NeuroML2/Schemas/NeuroML2/NeuroML_v2alpha.xsd"
+    xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta.xsd"
     id="IafNet">
     <expOneSynapse id="syn0" erev="0mV" gbase="65nS" tauDecay="3ms"/>
     <iafCell id="iaf0" reset="-65mV" C="1.0 nF" thresh="-50mV" leakConductance="10 nS" leakReversal="-65mV"/>
     <iafCell id="iaf1" reset="-65mV" C="1.0 nF" thresh="-50mV" leakConductance="20 nS" leakReversal="-65mV"/>
-    <pulseGenerator id="pulseGen_0" delay="0ms" duration="100ms" amplitude="0.059332 nA"/>
-    <pulseGenerator id="pulseGen_1" delay="0ms" duration="100ms" amplitude="0.056230 nA"/>
-    <pulseGenerator id="pulseGen_2" delay="0ms" duration="100ms" amplitude="0.021012 nA"/>
-    <pulseGenerator id="pulseGen_3" delay="0ms" duration="100ms" amplitude="0.097123 nA"/>
-    <pulseGenerator id="pulseGen_4" delay="0ms" duration="100ms" amplitude="0.036417 nA"/>
+    <pulseGenerator id="pulseGen_0" delay="10ms" duration="1000ms" amplitude="0.29332 nA"/>
+    <pulseGenerator id="pulseGen_1" delay="20ms" duration="1000ms" amplitude="0.16230 nA"/>
+    <pulseGenerator id="pulseGen_2" delay="30ms" duration="1000ms" amplitude="0.21012 nA"/>
+    <pulseGenerator id="pulseGen_3" delay="40ms" duration="1000ms" amplitude="0.07123 nA"/>
+    <pulseGenerator id="pulseGen_4" delay="50ms" duration="1000ms" amplitude="0.26417 nA"/>
     <network id="IafNet">
         <population id="IafPop0" component="iaf0" size="5"/>
         <population id="IafPop1" component="iaf0" size="5"/>
