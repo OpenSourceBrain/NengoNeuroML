@@ -1,0 +1,114 @@
+<Lems xmlns="http://www.neuroml.org/lems/0.6"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.neuroml.org/lems/0.6 https://raw.github.com/LEMS/LEMS/master/Schemas/LEMS/LEMS_v0.6.xsd">
+
+<!--
+    Definition in LEMS of the Nengo IaF cell & a simple dimensionless synapse
+-->
+
+<ComponentType name="nengoIaFCell" extends="baseCellMembPotDL">  <!-- From https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes/Cells.xml -->
+
+    <Parameter name="tau_rc" dimension="time" description="Time constant"/>
+    <Parameter name="tau_ref" dimension="time" description="Refractory period"/>
+    <Parameter name="I" dimension="none"/>
+    <Parameter name="thresh" dimension="none"/>
+    <Parameter name="reset" dimension="none"/>
+    
+    <Exposure name="ISyn" dimension="none"/>
+
+    <Attachments name="synapses" type="basePointCurrent"/>
+    
+    <Dynamics>
+
+        <StateVariable name="V" dimension="none" exposure="V"/>
+        <StateVariable name="lastSpikeTime" dimension="time"/>
+
+        <DerivedVariable name="ISyn" dimension="none" select="synapses[*]/I" reduce="add" />
+
+        <OnStart>
+            <StateAssignment variable="V" value="reset"/>
+        </OnStart>
+
+        <Regime name="integrating" initial="true">
+
+            <TimeDerivative variable="V" value="((reset - V)  + I + ISyn) / tau_rc"/>
+
+            <OnCondition test="V .gt. thresh">
+                <EventOut port="spike"/>
+                <Transition regime="refractory" />
+            </OnCondition>
+
+        </Regime>
+
+        <Regime name="refractory">
+            <OnEntry>
+                <StateAssignment variable="V" value="reset"/>
+                <StateAssignment variable="lastSpikeTime" value="t"/>
+            </OnEntry>
+            <OnCondition test="t .gt. lastSpikeTime + tau_ref">
+                <Transition regime="integrating" />
+            </OnCondition>
+        </Regime>
+        
+    </Dynamics>
+    
+</ComponentType>
+
+
+<ComponentType name="nengoSynapse" extends="baseSynapseDL">   <!-- From https://github.com/NeuroML/NeuroML2/blob/master/NeuroML2CoreTypes/Synapses.xml -->
+
+    <Parameter name="tauDecay" dimension="time" description="Time course of decay"/>
+    <Parameter name="erev" dimension="none" description="Reversal potential of the synapse"/>
+    <Parameter name="gbase" dimension="none" description="Baseline conductance, generally the maximum conductance following a single spike"/>
+
+    <Exposure name="g" dimension="none" description="Time varying conductance through the synapse"/>
+
+    <Dynamics>
+
+        <StateVariable name="g" dimension="none" exposure="g"/>
+
+        <DerivedVariable name="I" exposure="I" dimension="none" value="g * (erev - V)"/>
+
+        <TimeDerivative variable="g" value="-g / tauDecay" />
+
+        <OnStart>
+            <StateAssignment variable="g" value="0" />
+        </OnStart>
+
+        <OnEvent port="in">
+            <StateAssignment variable="g" value="g + gbase" />
+        </OnEvent>
+
+    </Dynamics>
+</ComponentType>
+
+
+</Lems>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

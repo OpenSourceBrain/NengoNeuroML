@@ -1,0 +1,63 @@
+<Lems>
+
+<!-- Specify which component to run -->
+    <Target component="sim1"/>
+
+<!-- Include core NeuroML2 ComponentType definitions -->
+    <Include file="Cells.xml"/>
+    <Include file="Networks.xml"/>
+    <Include file="Simulation.xml"/>
+
+    <Include file="NengoIafCompTypes.nml"/>
+
+
+
+    <!-- Define the nengo cells & create a small network -->
+
+    <nengoIaFCell id="n1" tau_rc="30ms" tau_ref="5ms" I="1.2" thresh="1" reset="0"/>
+    <nengoIaFCell id="n2" tau_rc="30ms" tau_ref="5ms" I="0" thresh="1" reset="0"/>
+
+    <nengoSynapse id="syn0" erev="1" gbase="0.1" tauDecay="10ms"/>
+    <nengoSynapse id="syn1" erev="1" gbase="0.2" tauDecay="20ms"/>
+
+    <network id="net1">
+        <population id="n1pop" component="n1" size="1"/>
+        <population id="n2pop" component="n2" size="2"/>
+        <synapticConnection from="n1pop[0]" to="n2pop[0]" synapse="syn0" destination="synapses"/>
+        <synapticConnection from="n1pop[0]" to="n2pop[1]" synapse="syn1" destination="synapses"/>
+    </network>
+
+
+
+    <!-- Simulation running & plotting -->
+
+    <Simulation id="sim1" length="0.5s" step="0.2ms" target="net1">
+
+        <Display id="d1" title="Ex: NengoIafCompTypes.nml: Pre cell" timeScale="1s" xmin="0" xmax="0.5" ymin="-0.1" ymax="1.1">
+            <Line id="l0" quantity="n1pop[0]/V" scale="1" color="#ffffff" timeScale="1s"/>
+        </Display>
+
+        <Display id="d2" title="Ex: NengoIafCompTypes.nml: Post cells" timeScale="1s" xmin="0" xmax="0.5" ymin="-0.01" ymax="0.11">
+            <Line id="l0" quantity="n2pop[0]/V" scale="1" color="#1111FF" timeScale="1s"/>
+            <Line id="l2" quantity="n2pop[1]/V" scale="1" color="#11FFFF" timeScale="1s"/>
+        </Display>
+
+        <Display id="d3" title="Ex: NengoIafCompTypes.nml: Post cell conductances" timeScale="1s" xmin="0" xmax="0.5" ymin="-0.05" ymax="0.6">
+            <Line id ="l1" quantity="n2pop[0]/syn0/g" scale="1"  color="#1111FF" timeScale="1s"/>
+            <Line id ="l2" quantity="n2pop[1]/syn1/g" scale="1"  color="#11FFFF" timeScale="1s"/>
+        </Display>
+
+        <Display id="d4" title="Ex: NengoIafCompTypes.nml: Post cell synaptic current" timeScale="1s" xmin="0" xmax="0.5" ymin="-0.05" ymax="0.6">
+            <Line id ="l1" quantity="n2pop[0]/ISyn" scale="1"  color="#1111FF" timeScale="1s"/>
+            <Line id ="l2" quantity="n2pop[1]/ISyn" scale="1"  color="#11FFFF" timeScale="1s"/>
+        </Display>
+
+        <OutputFile id="of0" fileName="test_v.dat">
+            <OutputColumn id="n1pop0V" quantity="n1pop[0]/V" />
+            <OutputColumn id="n2pop0V" quantity="n2pop[0]/V" />
+            <OutputColumn id="n2pop1V" quantity="n2pop[1]/V" />
+        </OutputFile>
+
+    </Simulation>
+
+</Lems>
