@@ -23,7 +23,7 @@
         <StateVariable name="V" dimension="none" exposure="V"/>
         <StateVariable name="lastSpikeTime" dimension="time"/>
 
-        <DerivedVariable name="ISyn" dimension="none" select="synapses[*]/I" reduce="add" />
+        <DerivedVariable name="ISyn" dimension="none" exposure="ISyn" select="synapses[*]/I" reduce="add" />
 
         <OnStart>
             <StateAssignment variable="V" value="reset"/>

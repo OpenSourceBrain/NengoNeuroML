@@ -11,13 +11,13 @@
 
     <Simulation id="sim1" length="600ms" step="0.01ms" target="IafNet">
 
-        <Display id="d1" title="Ex: SimpleSpikingNet.nml" timeScale="1ms" xmin="0" xmax="600" ymin="-70" ymax="-45">
-                <Line id="l0" quantity="IafPop0[0]/v" scale="1mV" color="#ffffff" timeScale="1ms"/>
-                <Line id="l1" quantity="IafPop0[1]/v" scale="1mV" color="#fff333" timeScale="1ms"/>
-                <Line id="l2" quantity="IafPop0[2]/v" scale="1mV" color="#f2222f" timeScale="1ms"/>
-                <Line id="l3" quantity="IafPop1[0]/v" scale="1mV" color="#1111ff" timeScale="1ms"/>
-                <Line id="l4" quantity="IafPop1[1]/v" scale="1mV" color="#11335f" timeScale="1ms"/>
-                <Line id="l5" quantity="IafPop1[2]/v" scale="1mV" color="#7771ff" timeScale="1ms"/>
+        <Display id="d1" title="Ex: SimpleSpikingNet.nml" timeScale="1ms" xmin="-50" xmax="650" ymin="-67" ymax="-48">
+                <Line id="cell0" quantity="IafPop0[0]/v" scale="1mV" color="#ffffff" timeScale="1ms"/>
+                <Line id="cell1" quantity="IafPop0[1]/v" scale="1mV" color="#fff333" timeScale="1ms"/>
+                <Line id="cell2" quantity="IafPop0[2]/v" scale="1mV" color="#f2222f" timeScale="1ms"/>
+                <Line id="cell3" quantity="IafPop1[0]/v" scale="1mV" color="#1111ff" timeScale="1ms"/>
+                <Line id="cell4" quantity="IafPop1[1]/v" scale="1mV" color="#11335f" timeScale="1ms"/>
+                <Line id="cell5" quantity="IafPop1[2]/v" scale="1mV" color="#7771ff" timeScale="1ms"/>
         </Display>
 
 
